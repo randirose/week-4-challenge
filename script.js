@@ -2,6 +2,15 @@ var timer = document.getElementById("timer");
 var secondsLeft = 75;
 var startButton = document.getElementById("start-button");
 var wrongAnswer = document.getElementById("wrong");
+var questions = [{
+    question1: "question1",
+    correctAnswer1: "correct answer1",
+    incorrectAnswers1: ["wrong 1", "wrong 2", "wrong 3"];
+}, {
+    question2: "question1",
+    correctAnswer2: "correct answer1",
+    incorrectAnswers2: ["wrong 1", "wrong 2", "wrong 3"];
+}];
 
 
 startButton.addEventListener("click", setTime);
@@ -23,6 +32,12 @@ function setTime() {
 
         
     }, 1000);
+}
+
+startButton.addEventListener("click", showQuestion);
+
+function showQuestion(array) {
+    // randomizes questions from var questions array to show one at a time
 }
 
 function displayResult() {
