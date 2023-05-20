@@ -5,11 +5,11 @@ var wrongAnswer = document.getElementById("wrong");
 var questions = [{
     question1: "question1",
     correctAnswer1: "correct answer1",
-    incorrectAnswers1: ["wrong 1", "wrong 2", "wrong 3"];
+    incorrectAnswers1: ["wrong 1", "wrong 2", "wrong 3"]
 }, {
     question2: "question1",
     correctAnswer2: "correct answer1",
-    incorrectAnswers2: ["wrong 1", "wrong 2", "wrong 3"];
+    incorrectAnswers2: ["wrong 1", "wrong 2", "wrong 3"]
 }];
 
 
