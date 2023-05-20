@@ -15,6 +15,7 @@ var questions = [{
 
 startButton.addEventListener("click", setTime);
 function setTime() {
+    showQuestion(); //runs this function to show user questions
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = "Time left: " + secondsLeft;
