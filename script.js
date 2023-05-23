@@ -33,7 +33,8 @@ var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
 var displayResultText = document.createElement("p");
 var resultsForm = document.createElement("form");
-var resultsInput = document.createElement("input");
+var resultsNameInput = document.createElement("input");
+resultsNameInput.type = "text";
 var resultsInputScore = document.createElement("p");
 var resultsHeader = document.createElement("h3");
 var resultsSave = document.createElement("button");
@@ -98,10 +99,7 @@ function showQuestion() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
-    // questionCorrect.addEventListener("click", function(){
-    //     count++;
-    //     localStorage.setItem("correct", count);
-    // });
+   
 };
 
 
@@ -127,11 +125,7 @@ function showQuestion2() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
-    // questionCorrect.addEventListener("click", function(){
-    //     count++;
-    //     localStorage.setItem("correct", count);
-    // });
-    // event listener to add points to memory (function) to then display later
+ 
     },2000);
 };
 
@@ -158,11 +152,7 @@ function showQuestion3() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
-    // questionCorrect.addEventListener("click", function(){
-    //     count++;
-    //     localStorage.setItem("correct", count);
-    // });
-    // event listener to add points to memory (function) to then display later
+   
 },2000);
 };
 
@@ -188,11 +178,7 @@ function showQuestion4() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
-    // questionCorrect.addEventListener("click", function(){
-    //     count++;
-    //     localStorage.setItem("correct", count);
-    // });
-    // event listener to add points to memory (function) to then display later
+    
 },2000);
 };
 
@@ -218,11 +204,7 @@ function showQuestion5() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
-    // questionCorrect.addEventListener("click", function(){
-    //     count++;
-    //     localStorage.setItem("correct", count);
-    // });
-    // event listener to add points to memory (function) to then display later
+    
 },2000);
 };
 
@@ -241,7 +223,7 @@ function displayResultRight() {
 function displayResult(){
     setTimeout(()=> {
     // remove questions/answers from page
-    document.body.removeChild(questionTitle);
+    document.body.removeChild(questionTitle); //this is giving me an error in console??
     document.body.removeChild(questionAnswers);
     questionAnswers.removeChild(questionCorrect);
     questionAnswers.removeChild(questionWrong1);
@@ -258,18 +240,20 @@ function displayResult(){
     
     resultsForm.appendChild(resultsInputScore);
     resultsInputScore.innerHTML = count;
-    count.setAttribute('id', 'user-score');
-    resultsForm.appendChild(resultsInput);
-    resultsInput.setAttribute("name", "string");
-    resultsInput.setAttribute('id', 'user-name');
-    resultsInput.appendChild(resultsSave);
-    var userName = document.getElementById("user-name");
-    var userScore = document.getElementById("user-score");
+   
+    
+    resultsForm.appendChild(resultsNameInput);
+    resultsForm.appendChild(resultsSave);
+    resultsSave.textContent = "Save My Score!"
+    
+  
     var userInput = {
-        name: userName.value,
-        score: userScore.value,
+        name: resultsNameInput.value,
+        score: count,
     };
+    resultsSave.addEventListener("click", function(){
     localStorage.setItem("userInput", JSON.stringify(userInput));
+});
     // show link to highscores page
     
 
