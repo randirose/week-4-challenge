@@ -1,6 +1,5 @@
 var timer = document.getElementById("timer");
-var secondsLeft = 75;
-var newTime = timer.textContent-10000;
+var secondsLeft = "";
 var startButton = document.getElementById("start-button");
 var wrongAnswer = document.getElementById("wrong");
 var questions = [{
@@ -23,6 +22,7 @@ var displayResultText = document.createElement("p");
 startButton.addEventListener("click", setTime);
 startButton.addEventListener("click", showQuestion);
 function setTime() {
+    var secondsLeft = 75;
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = secondsLeft;
@@ -31,9 +31,7 @@ function setTime() {
             clearInterval(timerInterval);
             displayResult();
         };
-    
 
-        
     }, 1000);
 }
 
@@ -92,9 +90,9 @@ function showQuestion2() {
     // event listener to add points to memory (function) to then display later
 }
 function wrongAnswer() {
-    timer.textContent = secondsLeft - 10;
+    // figure out how to subtract time!!!
 
-    }
+    };
 
 function displayResultWrong() {
     document.body.appendChild(displayResultText);
@@ -104,5 +102,7 @@ function displayResultRight() {
     document.body.appendChild(displayResultText);
     displayResultText.textContent = "That's correct!";
 }
+function displayResult(){
 
-console.log(newTime);
+}
+// console.log(timer.textContent = timer.textContent - 10);
