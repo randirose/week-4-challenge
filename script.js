@@ -32,6 +32,10 @@ var questionWrong1 = document.createElement("button");
 var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
 var displayResultText = document.createElement("p");
+var resultsForm = document.createElement("form");
+var resultsInput = document.createElement("input");
+var resultsInputScore = document.createElement("input");
+var resultsHeader = document.createElement("h3");
 
 
 startButton.addEventListener("click", showQuestion);
@@ -86,7 +90,9 @@ function showQuestion() {
     document.body.appendChild(displayResultText);
 };
 
+
 function showQuestion2() {
+    setTimeout(()=> {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[1].question2;
     document.body.appendChild(questionAnswers);
@@ -108,8 +114,12 @@ function showQuestion2() {
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
     // event listener to add points to memory (function) to then display later
+    },2000);
 };
+
+
 function showQuestion3() {
+    setTimeout(()=> {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[2].question3;
     document.body.appendChild(questionAnswers);
@@ -131,8 +141,11 @@ function showQuestion3() {
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
     // event listener to add points to memory (function) to then display later
+},2000);
 };
+
 function showQuestion4() {
+    setTimeout(()=> {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[3].question4;
     document.body.appendChild(questionAnswers);
@@ -154,8 +167,11 @@ function showQuestion4() {
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
     // event listener to add points to memory (function) to then display later
+},2000);
 };
+
 function showQuestion5() {
+    setTimeout(()=> {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[4].question5;
     document.body.appendChild(questionAnswers);
@@ -177,6 +193,7 @@ function showQuestion5() {
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
     // event listener to add points to memory (function) to then display later
+},2000);
 };
 
 function displayResultWrong() {
@@ -192,5 +209,22 @@ function displayResultRight() {
     }, 2000);
 }
 function displayResult(){
+    setTimeout(()=> {
+    // remove questions/answers from page
+    document.body.removeChild(questionTitle);
+    document.body.removeChild(questionAnswers);
+    questionAnswers.removeChild(questionCorrect);
+    questionAnswers.removeChild(questionWrong1);
+    questionAnswers.removeChild(questionWrong2);
+    questionAnswers.removeChild(questionWrong3);
 
-}
+    // add form to submit results
+    document.body.appendChild(resultsForm);
+    resultsForm.appendChild(resultsHeader);
+    resultsHeader.textContent = "Enter your name below to save your score!"
+    resultsForm.appendChild(resultsInputScore);
+    resultsInputScore.textContent = //pull from storage 1-5 how many questions they got correct
+    resultsForm.appendChild(resultsInput);
+    resultsInput.setAttribute("name", "string");
+},2000);
+};
