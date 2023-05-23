@@ -1,5 +1,4 @@
 var timer = document.getElementById("timer");
-var secondsLeft = "";
 var startButton = document.getElementById("start-button");
 var wrongAnswer = document.getElementById("wrong");
 var questions = [{
@@ -19,23 +18,35 @@ var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
 var displayResultText = document.createElement("p");
 
-startButton.addEventListener("click", setTime);
+
 startButton.addEventListener("click", showQuestion);
-function setTime() {
+startButton.addEventListener("click", function() {
     var secondsLeft = 75;
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timer.textContent = secondsLeft;
-
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            displayResult();
-        };
-
-    }, 1000);
-}
-
-
+    function startTimer(){
+        var gameTimer = setInterval(function(){
+            secondsLeft--;
+            timer.textContent="Time remaining: "+secondsLeft;
+            if (secondsLeft === 0) {
+                clearInterval(gameTimer);
+                timer.textContent="TIME UP!"
+                displayResult();
+            }
+        }, 1000);
+    }
+    questionWrong1.addEventListener('click', function() {
+        secondsLeft -= 10;
+        timer.textContent="Time remaining: "+secondsLeft;
+    });
+    questionWrong2.addEventListener('click', function() {
+        secondsLeft -= 10;
+        timer.textContent="Time remaining: "+secondsLeft;
+    });
+    questionWrong3.addEventListener('click', function() {
+        secondsLeft -= 10;
+        timer.textContent="Time remaining: "+secondsLeft;
+    });
+    startTimer();
+});
 
 function showQuestion() {
     document.body.appendChild(questionTitle);
@@ -53,9 +64,6 @@ function showQuestion() {
     questionWrong1.addEventListener("click", showQuestion2);
     questionWrong2.addEventListener("click", showQuestion2);
     questionWrong3.addEventListener("click", showQuestion2);
-    questionWrong1.addEventListener("click", wrongAnswer);
-    questionWrong2.addEventListener("click", wrongAnswer);
-    questionWrong3.addEventListener("click", wrongAnswer);
     questionWrong1.addEventListener("click", displayResultWrong);
     questionWrong2.addEventListener("click", displayResultWrong);
     questionWrong3.addEventListener("click", displayResultWrong);
@@ -79,9 +87,6 @@ function showQuestion2() {
     questionWrong1.addEventListener("click", showQuestion2);
     questionWrong2.addEventListener("click", showQuestion2);
     questionWrong3.addEventListener("click", showQuestion2);
-    questionWrong1.addEventListener("click", wrongAnswer);
-    questionWrong2.addEventListener("click", wrongAnswer);
-    questionWrong3.addEventListener("click", wrongAnswer);
     questionWrong1.addEventListener("click", displayResultWrong);
     questionWrong2.addEventListener("click", displayResultWrong);
     questionWrong3.addEventListener("click", displayResultWrong);
@@ -89,10 +94,7 @@ function showQuestion2() {
     
     // event listener to add points to memory (function) to then display later
 }
-function wrongAnswer() {
-    // figure out how to subtract time!!!
-
-    };
+ 
 
 function displayResultWrong() {
     document.body.appendChild(displayResultText);
@@ -105,4 +107,3 @@ function displayResultRight() {
 function displayResult(){
 
 }
-// console.log(timer.textContent = timer.textContent - 10);
