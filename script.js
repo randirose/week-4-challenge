@@ -28,17 +28,20 @@ var questions = [{
 var questionTitle = document.createElement("h2");
 var questionAnswers = document.createElement("ul");
 var questionCorrect = document.createElement("button");
+questionCorrect.setAttribute('id', 'correct');
 var questionWrong1 = document.createElement("button");
 var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
 var displayResultText = document.createElement("p");
 var resultsForm = document.createElement("form");
 var resultsInput = document.createElement("input");
-var resultsInputScore = document.createElement("input");
+var resultsInputScore = document.createElement("p");
 var resultsHeader = document.createElement("h3");
 
 
+
 startButton.addEventListener("click", showQuestion);
+startButton.addEventListener("click", clearCount);
 startButton.addEventListener("click", function() {
     var secondsLeft = 75;
     function startTimer(){
@@ -66,7 +69,14 @@ startButton.addEventListener("click", function() {
     });
     startTimer();
 });
-
+var count = localStorage.getItem("correct");
+questionCorrect.addEventListener("click", function(){
+    count++;
+    localStorage.setItem("correct", count);
+});
+function clearCount() {
+    count = "";
+}
 function showQuestion() {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[0].question1;
@@ -88,6 +98,10 @@ function showQuestion() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
+    // questionCorrect.addEventListener("click", function(){
+    //     count++;
+    //     localStorage.setItem("correct", count);
+    // });
 };
 
 
@@ -113,6 +127,10 @@ function showQuestion2() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
+    // questionCorrect.addEventListener("click", function(){
+    //     count++;
+    //     localStorage.setItem("correct", count);
+    // });
     // event listener to add points to memory (function) to then display later
     },2000);
 };
@@ -140,6 +158,10 @@ function showQuestion3() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
+    // questionCorrect.addEventListener("click", function(){
+    //     count++;
+    //     localStorage.setItem("correct", count);
+    // });
     // event listener to add points to memory (function) to then display later
 },2000);
 };
@@ -166,6 +188,10 @@ function showQuestion4() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
+    // questionCorrect.addEventListener("click", function(){
+    //     count++;
+    //     localStorage.setItem("correct", count);
+    // });
     // event listener to add points to memory (function) to then display later
 },2000);
 };
@@ -192,6 +218,10 @@ function showQuestion5() {
     questionWrong3.addEventListener("click", displayResultWrong);
     questionCorrect.addEventListener("click", displayResultRight);
     document.body.appendChild(displayResultText);
+    // questionCorrect.addEventListener("click", function(){
+    //     count++;
+    //     localStorage.setItem("correct", count);
+    // });
     // event listener to add points to memory (function) to then display later
 },2000);
 };
@@ -217,14 +247,28 @@ function displayResult(){
     questionAnswers.removeChild(questionWrong1);
     questionAnswers.removeChild(questionWrong2);
     questionAnswers.removeChild(questionWrong3);
-
+    
+    
+    
     // add form to submit results
     document.body.appendChild(resultsForm);
     resultsForm.appendChild(resultsHeader);
     resultsHeader.textContent = "Enter your name below to save your score!"
+
+    
     resultsForm.appendChild(resultsInputScore);
-    resultsInputScore.textContent = //pull from storage 1-5 how many questions they got correct
+    // var count = localStorage.getItem("correct");
+    resultsInputScore.innerHTML = count;
     resultsForm.appendChild(resultsInput);
     resultsInput.setAttribute("name", "string");
+    resultsInput.setAttribute('id', 'user-name');
+    // var userName = document.getElementById("user-name");
+    // var userInput = {
+    //     name: userName.value,
+    //     score: count
+    // };
+    
+
+
 },2000);
 };
