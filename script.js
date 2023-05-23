@@ -18,8 +18,7 @@ var questionCorrect = document.createElement("button");
 var questionWrong1 = document.createElement("button");
 var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
-var responseRight = document.createElement("p");
-var responseWrong = document.createElement("p");
+var displayResultText = document.createElement("p");
 
 startButton.addEventListener("click", setTime);
 startButton.addEventListener("click", showQuestion);
@@ -66,6 +65,7 @@ function showQuestion() {
 }
 
 function showQuestion2() {
+    // need to remove the right/wrong display when going to the next question
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[1].question2;
     document.body.appendChild(questionAnswers);
@@ -84,20 +84,25 @@ function showQuestion2() {
     questionWrong1.addEventListener("click", wrongAnswer);
     questionWrong2.addEventListener("click", wrongAnswer);
     questionWrong3.addEventListener("click", wrongAnswer);
+    questionWrong1.addEventListener("click", displayResultWrong);
+    questionWrong2.addEventListener("click", displayResultWrong);
+    questionWrong3.addEventListener("click", displayResultWrong);
+    questionCorrect.addEventListener("click", displayResultRight);
     
-    // event listener for if user clicks anything other than "correct answer" to run function to subtract time from clock
+    // event listener to add points to memory (function) to then display later
 }
 function wrongAnswer() {
-//    needs to subtract time from clock
+    timer.textContent = secondsLeft - 10;
 
     }
 
 function displayResultWrong() {
-    document.body.appendChild(responseWrong);
-    responseWrong.textContent = "Sorry, that's incorrect!";
+    document.body.appendChild(displayResultText);
+    displayResultText.textContent = "Sorry, that's incorrect!";
 }
 function displayResultRight() {
-    document.body.appendChild(responseRight);
-    responseWrong.textContent = "That's correct!";
+    document.body.appendChild(displayResultText);
+    displayResultText.textContent = "That's correct!";
 }
+
 console.log(newTime);
