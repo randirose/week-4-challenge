@@ -1,6 +1,5 @@
 var timer = document.getElementById("timer");
 var startButton = document.getElementById("start-button");
-var wrongAnswer = document.getElementById("wrong");
 var questions = [{
     question1: "question1",
     correctAnswer1: "correct answer1",
@@ -37,6 +36,7 @@ var resultsForm = document.createElement("form");
 var resultsInput = document.createElement("input");
 var resultsInputScore = document.createElement("p");
 var resultsHeader = document.createElement("h3");
+var resultsSave = document.createElement("button");
 
 
 
@@ -257,16 +257,20 @@ function displayResult(){
 
     
     resultsForm.appendChild(resultsInputScore);
-    // var count = localStorage.getItem("correct");
     resultsInputScore.innerHTML = count;
+    count.setAttribute('id', 'user-score');
     resultsForm.appendChild(resultsInput);
     resultsInput.setAttribute("name", "string");
     resultsInput.setAttribute('id', 'user-name');
-    // var userName = document.getElementById("user-name");
-    // var userInput = {
-    //     name: userName.value,
-    //     score: count
-    // };
+    resultsInput.appendChild(resultsSave);
+    var userName = document.getElementById("user-name");
+    var userScore = document.getElementById("user-score");
+    var userInput = {
+        name: userName.value,
+        score: userScore.value,
+    };
+    localStorage.setItem("userInput", JSON.stringify(userInput));
+    // show link to highscores page
     
 
 
