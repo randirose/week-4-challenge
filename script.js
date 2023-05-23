@@ -38,7 +38,10 @@ resultsNameInput.type = "text";
 var resultsInputScore = document.createElement("p");
 var resultsHeader = document.createElement("h3");
 var resultsSave = document.createElement("button");
-
+questionCorrect.setAttribute('class', 'button');
+questionWrong1.setAttribute('class', 'button');
+questionWrong2.setAttribute('class', 'button');
+questionWrong3.setAttribute('class', 'button');
 
 
 startButton.addEventListener("click", showQuestion);
@@ -247,11 +250,12 @@ function displayResult(){
     resultsSave.textContent = "Save My Score!"
     
   
-    var userInput = {
-        name: resultsNameInput.value,
-        score: count,
-    };
+    
     resultsSave.addEventListener("click", function(){
+        var userInput = [{
+            name: resultsNameInput.value,
+            score: count,
+        }];
     localStorage.setItem("userInput", JSON.stringify(userInput));
 });
     // show link to highscores page
