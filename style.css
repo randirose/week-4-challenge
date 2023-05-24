@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     font-weight: bold;
+    /* text-align: center; */
 }
 .starting-page h1 {
     color:rgb(65, 11, 79);
@@ -16,6 +17,7 @@ body {
     box-shadow: 5px 5px 2px darkgray;
     border-radius: 3px;
     color: white;
+    text-align: center;
 }
 
 .button:hover {
@@ -36,6 +38,7 @@ body {
 #save-button {
     display:block;
     margin-top: 10px;
+    margin-bottom: 10px;
     width: 150px;
     height: 50px;
     cursor: pointer;
@@ -50,3 +53,42 @@ body {
     color:rgb(65, 11, 79);
     text-shadow: darkgray 2px 2px 2px;
 }
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.highscores-link a {
+    text-decoration: none;
+    color: black;
+}
+
+body a {
+    text-decoration: none;
+    color: black;
+}
+
+#name-input {
+    display: block;
+    width: 150px;
+    height: 25px;
+    border: solid 7px black;
+}
+
+#result-text {
+    color: lightslategray;
+    font-style: italic;
+}
+
+#hidden-link {
+    display: none;
+}
+
+.container {
+    text-align: center;
+}
+
+/* #question-title {
+    text-align: center;
+} */

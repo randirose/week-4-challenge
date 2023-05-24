@@ -25,7 +25,9 @@ var questions = [{
     incorrectAnswers5: ["wrong 1.5", "wrong 2.5", "wrong 3.5"]
 }];
 var questionTitle = document.createElement("h2");
+questionTitle.setAttribute('id', 'question-title');
 var questionAnswers = document.createElement("ul");
+questionAnswers.setAttribute('id', 'answers-ul');
 var questionCorrect = document.createElement("button");
 questionCorrect.setAttribute('id', 'correct');
 var questionWrong1 = document.createElement("button");
@@ -44,12 +46,14 @@ questionWrong2.setAttribute('class', 'button');
 questionWrong3.setAttribute('class', 'button');
 resultsSave.setAttribute('id', 'save-button');
 resultsNameInput.setAttribute('id', 'name-input');
-
+displayResultText.setAttribute('id', 'result-text')
+var quizContainer = document.getElementById('questions-answers');
+// var mainContainer = document.querySelector(".container");
 
 startButton.addEventListener("click", showQuestion);
 startButton.addEventListener("click", clearCount);
 startButton.addEventListener("click", function() {
-    var secondsLeft = 75;
+    var secondsLeft = 60;
     function startTimer(){
         var gameTimer = setInterval(function(){
             secondsLeft--;
@@ -114,12 +118,12 @@ function showQuestion2() {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[1].question2;
     document.body.appendChild(questionAnswers);
-    questionAnswers.appendChild(questionCorrect);
-    questionCorrect.textContent = questions[1].correctAnswer2;
     questionAnswers.appendChild(questionWrong1);
     questionWrong1.textContent = questions[1].incorrectAnswers2[0];
     questionAnswers.appendChild(questionWrong2);
     questionWrong2.textContent = questions[1].incorrectAnswers2[1];
+    questionAnswers.appendChild(questionCorrect);
+    questionCorrect.textContent = questions[1].correctAnswer2;
     questionAnswers.appendChild(questionWrong3);
     questionWrong3.textContent = questions[1].incorrectAnswers2[2];
     questionCorrect.addEventListener("click", showQuestion3);
@@ -141,14 +145,14 @@ function showQuestion3() {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[2].question3;
     document.body.appendChild(questionAnswers);
-    questionAnswers.appendChild(questionCorrect);
-    questionCorrect.textContent = questions[2].correctAnswer3;
     questionAnswers.appendChild(questionWrong1);
     questionWrong1.textContent = questions[2].incorrectAnswers3[0];
     questionAnswers.appendChild(questionWrong2);
     questionWrong2.textContent = questions[2].incorrectAnswers3[1];
     questionAnswers.appendChild(questionWrong3);
     questionWrong3.textContent = questions[2].incorrectAnswers3[2];
+    questionAnswers.appendChild(questionCorrect);
+    questionCorrect.textContent = questions[2].correctAnswer3;
     questionCorrect.addEventListener("click", showQuestion4);
     questionWrong1.addEventListener("click", showQuestion4);
     questionWrong2.addEventListener("click", showQuestion4);
@@ -193,12 +197,12 @@ function showQuestion5() {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[4].question5;
     document.body.appendChild(questionAnswers);
-    questionAnswers.appendChild(questionCorrect);
-    questionCorrect.textContent = questions[4].correctAnswer5;
     questionAnswers.appendChild(questionWrong1);
     questionWrong1.textContent = questions[4].incorrectAnswers5[0];
     questionAnswers.appendChild(questionWrong2);
     questionWrong2.textContent = questions[4].incorrectAnswers5[1];
+    questionAnswers.appendChild(questionCorrect);
+    questionCorrect.textContent = questions[4].correctAnswer5;
     questionAnswers.appendChild(questionWrong3);
     questionWrong3.textContent = questions[4].incorrectAnswers5[2];
     questionCorrect.addEventListener("click", displayResult);
@@ -245,7 +249,7 @@ function displayResult(){
 
     
     resultsForm.appendChild(resultsInputScore);
-    resultsInputScore.innerHTML = count;
+    resultsInputScore.innerHTML = "You got " + count + " questions right! Awesome job!"
    
     
     resultsForm.appendChild(resultsNameInput);
@@ -263,9 +267,13 @@ function displayResult(){
       savedScores.push(userInput)
       localStorage.setItem('userInput', JSON.stringify(savedScores))
 });
-    // show link to highscores page
+resultsSave.addEventListener("click", function(event){
+    event.preventDefault();
+    var linkEl = document.getElementById('hidden-link');
+    resultsForm.appendChild(linkEl);
+    linkEl.style.display = 'block';
+});
     
-
-
 },2000);
 };
+
