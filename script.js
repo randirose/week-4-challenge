@@ -12,12 +12,12 @@ var questions = [{
 {
     question3: "What must you call on JSON in order to retrieve an object from local storage?",
     correctAnswer3: ".parse",
-    incorrectAnswers3: [".stringify", ".click", ".store"]
+    incorrectAnswers3: [".stringify", ".retrieve", ".get"]
 },
 {
     question4: "What must you call on the document in order to create an element?",
     correctAnswer4: ".createElement",
-    incorrectAnswers4: [".appendChild", ".click", ".create"]
+    incorrectAnswers4: [".appendChild", ".make", ".create"]
 },
 {
     question5: "What must you call on the document in order to add an element to the DOM?",
@@ -47,12 +47,13 @@ questionWrong3.setAttribute('class', 'button');
 resultsSave.setAttribute('id', 'save-button');
 resultsNameInput.setAttribute('id', 'name-input');
 displayResultText.setAttribute('id', 'result-text')
-var quizContainer = document.getElementById('questions-answers');
-// var mainContainer = document.querySelector(".container");
+// var quizContainer = document.getElementById('questions-answers');
+var mainContainer = document.querySelector(".container");
 
 startButton.addEventListener("click", showQuestion);
 startButton.addEventListener("click", clearCount);
 startButton.addEventListener("click", function() {
+    mainContainer.hidden = true
     var secondsLeft = 60;
     function startTimer(){
         var gameTimer = setInterval(function(){
@@ -67,16 +68,28 @@ startButton.addEventListener("click", function() {
         }, 1000);
     }
     questionWrong1.addEventListener('click', function() {
+        if (secondsLeft > 9) {
         secondsLeft -= 10;
-        timer.textContent="Time remaining: "+secondsLeft;
+        timer.textContent="Time remaining: "+secondsLeft; 
+        } else {
+            secondsLeft === 0;
+        }
     });
     questionWrong2.addEventListener('click', function() {
-        secondsLeft -= 10;
-        timer.textContent="Time remaining: "+secondsLeft;
+        if (secondsLeft > 9) {
+            secondsLeft -= 10;
+            timer.textContent="Time remaining: "+secondsLeft; 
+        } else {
+            secondsLeft === 0;
+        }
     });
     questionWrong3.addEventListener('click', function() {
-        secondsLeft -= 10;
-        timer.textContent="Time remaining: "+secondsLeft;
+        if (secondsLeft > 9) {
+            secondsLeft -= 10;
+            timer.textContent="Time remaining: "+secondsLeft; 
+        } else {
+            secondsLeft === 0;
+        }
     });
     startTimer();
 });
@@ -86,7 +99,7 @@ questionCorrect.addEventListener("click", function(){
     localStorage.setItem("correct", count);
 });
 function clearCount() {
-    count = "";
+    count = 0;
 }
 function showQuestion() {
     document.body.appendChild(questionTitle);
