@@ -11,7 +11,7 @@ var questions = [{
 },
 {
     question3: "What must you call on JSON in order to retrieve an object from local storage?",
-    correctAnswer3: "parse",
+    correctAnswer3: ".parse",
     incorrectAnswers3: [".stringify", ".click", ".store"]
 },
 {
@@ -233,8 +233,8 @@ function displayResultRight() {
 function displayResult(){
     setTimeout(()=> {
     // remove questions/answers from page
-    document.body.removeChild(questionTitle); //this is giving me an error in console??
-    document.body.removeChild(questionAnswers);
+    questionTitle.remove();
+    questionAnswers.remove();
     questionAnswers.removeChild(questionCorrect);
     questionAnswers.removeChild(questionWrong1);
     questionAnswers.removeChild(questionWrong2);
