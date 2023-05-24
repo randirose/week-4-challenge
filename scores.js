@@ -1,13 +1,12 @@
 var highscoresList = document.getElementById("highscores");
-var scores = [];
+var scores = JSON.parse(localStorage.getItem('userInput'));
 
 
 function renderHighScores() {
     highscoresList.innerHTML = "";
-    var storedScores = JSON.parse(localStorage.getItem("userInput"));
-    if (storedScores !== null) {
-    scores = storedScores;
-}
+
+    if (scores !== null) {
+
     for (var i = 0; i < scores.length; i++) {
         var score = scores[i];
 
@@ -21,25 +20,7 @@ function renderHighScores() {
         
         
     }
+}
     
-    storeScores();
-    
 }
-function init() {
-   
-    var storedScores = JSON.parse(localStorage.getItem("scores"));
-        if (storedScores !== null) {
-        scores = storedScores;
-    }
-    scores.push(storedScores);
-    renderHighScores();
-}
-function storeScores() {
-    localStorage.setItem("scores", JSON.stringify(scores));
-}
-// function displayScores() {
-//     scores.push(scoreListItem.value);
-//     storeScores();
-//     renderHighScores();
-// }
-init();
+renderHighScores();

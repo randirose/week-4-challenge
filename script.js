@@ -42,6 +42,8 @@ questionCorrect.setAttribute('class', 'button');
 questionWrong1.setAttribute('class', 'button');
 questionWrong2.setAttribute('class', 'button');
 questionWrong3.setAttribute('class', 'button');
+resultsSave.setAttribute('id', 'save-button');
+resultsNameInput.setAttribute('id', 'name-input');
 
 
 startButton.addEventListener("click", showQuestion);
@@ -54,9 +56,10 @@ startButton.addEventListener("click", function() {
             timer.textContent="Time remaining: "+secondsLeft;
             if (secondsLeft === 0) {
                 clearInterval(gameTimer);
-                timer.textContent="TIME UP!"
+                timer.textContent="TIME UP!";
                 displayResult();
             }
+           
         }, 1000);
     }
     questionWrong1.addEventListener('click', function() {
@@ -252,11 +255,13 @@ function displayResult(){
   
     
     resultsSave.addEventListener("click", function(){
-        var userInput = [{
-            name: resultsNameInput.value,
-            score: count,
-        }];
-    localStorage.setItem("userInput", JSON.stringify(userInput));
+        var savedScores = JSON.parse(localStorage.getItem('userInput')) || []
+        var userInput = {
+        name: resultsNameInput.value,
+        score: count,
+        }
+      savedScores.push(userInput)
+      localStorage.setItem('userInput', JSON.stringify(savedScores))
 });
     // show link to highscores page
     

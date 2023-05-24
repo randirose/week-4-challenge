@@ -32,3 +32,21 @@ body {
     border-radius: 3px;
     color: rgb(65, 11, 79);
 }
+
+#save-button {
+    display:block;
+    margin-top: 10px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    background-color: darkgray;
+    box-shadow: 5px 5px 2px rgb(65, 11, 79);
+    border-radius: 3px;
+    color: rgb(65, 11, 79);
+}
+
+.highscores {
+    text-align: center;
+    color:rgb(65, 11, 79);
+    text-shadow: darkgray 2px 2px 2px;
+}
