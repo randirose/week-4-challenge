@@ -28,9 +28,7 @@ THEN I can save my initials and score
 
 You can see the published GitHub page here: https://randirose.github.io/week-4-challenge
 
-    ```md
     ![Screen recording of quiz in action!](assets/screen-recording.webm)
-    ```
 
 ## Credits
 
