@@ -242,7 +242,7 @@ function showQuestion5() {
 },2000);
 };
 
-// these display under quiz answer buttons when user answers. timeout function added on these, as well as the functions that show the question/answers make it so they both disappear at the same time when the next question loads
+// these display under quiz answer buttons when user answers. timeout function added on these (to clear text after a delay), as well as the functions that show the question/answers make it so they both disappear at the same time when the next question loads
 function displayResultWrong() {
     displayResultText.textContent = "Sorry, that's incorrect!";
     setTimeout(function(){
