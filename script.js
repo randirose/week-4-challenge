@@ -27,7 +27,6 @@ var questions = [{
 var questionTitle = document.createElement("h2");
 questionTitle.setAttribute('id', 'question-title');
 var questionAnswers = document.createElement("ul");
-questionAnswers.setAttribute('id', 'answers-ul');
 var questionCorrect = document.createElement("button");
 questionCorrect.setAttribute('id', 'correct');
 var questionWrong1 = document.createElement("button");
