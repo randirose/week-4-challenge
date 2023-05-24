@@ -54,9 +54,10 @@ startButton.addEventListener("click", showQuestion);
 startButton.addEventListener("click", clearCount);
 startButton.addEventListener("click", function() {
     mainContainer.hidden = true
+    let gameTimer;
     var secondsLeft = 60;
     function startTimer(){
-        var gameTimer = setInterval(function(){
+        gameTimer = setInterval(function(){
             secondsLeft--;
             timer.textContent="Time remaining: "+secondsLeft;
             if (secondsLeft === 0) {
@@ -72,7 +73,9 @@ startButton.addEventListener("click", function() {
         secondsLeft -= 10;
         timer.textContent="Time remaining: "+secondsLeft; 
         } else {
-            secondsLeft === 0;
+            clearInterval(gameTimer);
+            timer.textContent="TIME UP!";
+            displayResult();
         }
     });
     questionWrong2.addEventListener('click', function() {
@@ -80,7 +83,9 @@ startButton.addEventListener("click", function() {
             secondsLeft -= 10;
             timer.textContent="Time remaining: "+secondsLeft; 
         } else {
-            secondsLeft === 0;
+            clearInterval(gameTimer);
+            timer.textContent="TIME UP!";
+            displayResult();
         }
     });
     questionWrong3.addEventListener('click', function() {
@@ -88,7 +93,9 @@ startButton.addEventListener("click", function() {
             secondsLeft -= 10;
             timer.textContent="Time remaining: "+secondsLeft; 
         } else {
-            secondsLeft === 0;
+            clearInterval(gameTimer);
+            timer.textContent="TIME UP!";
+            displayResult();
         }
     });
     startTimer();
