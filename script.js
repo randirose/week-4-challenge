@@ -294,6 +294,6 @@ resultsSave.addEventListener("click", function(event){
     linkEl.style.display = 'block';
 });
     
-},2000);
+},2100);
 };
 
