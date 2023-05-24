@@ -47,9 +47,9 @@ questionWrong3.setAttribute('class', 'button');
 resultsSave.setAttribute('id', 'save-button');
 resultsNameInput.setAttribute('id', 'name-input');
 displayResultText.setAttribute('id', 'result-text')
-// var quizContainer = document.getElementById('questions-answers');
 var mainContainer = document.querySelector(".container");
 
+// all functions linked to the start button - shows questions, clears score and starts timer. event listeners also subtract time if the user answers incorrectly (but only if the user has more than 10 seconds remaining).
 startButton.addEventListener("click", showQuestion);
 startButton.addEventListener("click", clearCount);
 startButton.addEventListener("click", function() {
@@ -100,6 +100,8 @@ startButton.addEventListener("click", function() {
     });
     startTimer();
 });
+
+// this event listener will keep track of the user score, and clear the counter when the user refreshes/starts quiz over
 var count = localStorage.getItem("correct");
 questionCorrect.addEventListener("click", function(){
     count++;
@@ -108,6 +110,8 @@ questionCorrect.addEventListener("click", function(){
 function clearCount() {
     count = 0;
 }
+
+// these functions append and add text content to each question/answer set. event listeners tell the browser to load the next question (after timeout) after a user answers. they also tell the browser to display the result of that question to the user once they click on an answer. the final set of questions will send the user to the (final) displayResult function
 function showQuestion() {
     document.body.appendChild(questionTitle);
     questionTitle.textContent = questions[0].question1;
@@ -238,6 +242,7 @@ function showQuestion5() {
 },2000);
 };
 
+// these display under quiz answer buttons when user answers. timeout function added on these, as well as the functions that show the question/answers make it so they both disappear at the same time when the next question loads
 function displayResultWrong() {
     displayResultText.textContent = "Sorry, that's incorrect!";
     setTimeout(function(){
@@ -251,6 +256,7 @@ function displayResultRight() {
     }, 2000);
 }
 function displayResult(){
+    // timeout is slightly longer than the quiz questions, so if the user only makes it through question 4 before time is up, it will still load question 5 elements in time to be removed in this function
     setTimeout(()=> {
     // remove questions/answers from page
     questionTitle.remove();
@@ -277,7 +283,7 @@ function displayResult(){
     resultsSave.textContent = "Save My Score!"
     
   
-    
+    // this function will save user scores (without overriding) to an array to be pulled from on the scores.js file
     resultsSave.addEventListener("click", function(){
         var savedScores = JSON.parse(localStorage.getItem('userInput')) || []
         var userInput = {
@@ -287,6 +293,8 @@ function displayResult(){
       savedScores.push(userInput)
       localStorage.setItem('userInput', JSON.stringify(savedScores))
 });
+
+// this will display hidden links to highscores and to play again once user submits score
 resultsSave.addEventListener("click", function(event){
     event.preventDefault();
     var linkEl = document.getElementById('hidden-link');

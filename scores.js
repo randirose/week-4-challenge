@@ -1,7 +1,7 @@
 var highscoresList = document.getElementById("highscores");
 var scores = JSON.parse(localStorage.getItem('userInput'));
 
-
+// this renders all user scores in local storage to an ordered list on the page
 function renderHighScores() {
     highscoresList.innerHTML = "";
 
