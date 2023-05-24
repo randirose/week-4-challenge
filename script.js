@@ -1,28 +1,28 @@
 var timer = document.getElementById("timer");
 var startButton = document.getElementById("start-button");
 var questions = [{
-    question1: "question1",
-    correctAnswer1: "correct answer1",
-    incorrectAnswers1: ["wrong 1", "wrong 2", "wrong 3"]
+    question1: "What is not a parameter of an event listener?",
+    correctAnswer1: "button",
+    incorrectAnswers1: ["type", "listener", "options"]
 }, {
-    question2: "question2",
-    correctAnswer2: "correct answer2",
-    incorrectAnswers2: ["wrong 1.2", "wrong 2.2", "wrong 3.2"]
+    question2: "What must you call on JSON in order to store an object to local storage?",
+    correctAnswer2: ".stringify",
+    incorrectAnswers2: [".parse", ".click", ".store"]
 },
 {
-    question3: "question3",
-    correctAnswer3: "correct answer3",
-    incorrectAnswers3: ["wrong 1.3", "wrong 2.3", "wrong 3.3"]
+    question3: "What must you call on JSON in order to retrieve an object from local storage?",
+    correctAnswer3: "parse",
+    incorrectAnswers3: [".stringify", ".click", ".store"]
 },
 {
-    question4: "question4",
-    correctAnswer4: "correct answer4",
-    incorrectAnswers4: ["wrong 1.4", "wrong 2.4", "wrong 3.4"]
+    question4: "What must you call on the document in order to create an element?",
+    correctAnswer4: ".createElement",
+    incorrectAnswers4: [".appendChild", ".click", ".create"]
 },
 {
-    question5: "question5",
-    correctAnswer5: "correct answer5",
-    incorrectAnswers5: ["wrong 1.5", "wrong 2.5", "wrong 3.5"]
+    question5: "What must you call on the document in order to add an element to the DOM?",
+    correctAnswer5: ".appendChild",
+    incorrectAnswers5: [".createElement", ".add", ".DOM"]
 }];
 var questionTitle = document.createElement("h2");
 questionTitle.setAttribute('id', 'question-title');
@@ -34,6 +34,7 @@ var questionWrong2 = document.createElement("button");
 var questionWrong3 = document.createElement("button");
 var displayResultText = document.createElement("p");
 var resultsForm = document.createElement("form");
+resultsForm.setAttribute('id', 'form');
 var resultsNameInput = document.createElement("input");
 resultsNameInput.type = "text";
 var resultsInputScore = document.createElement("p");
