@@ -5,24 +5,24 @@ var questions = [{
     correctAnswer1: "button",
     incorrectAnswers1: ["type", "listener", "options"]
 }, {
-    question2: "What must you call on JSON in order to store an object to local storage?",
-    correctAnswer2: ".stringify",
-    incorrectAnswers2: [".parse", ".click", ".store"]
+    question2: "What method must you call on JSON in order to store an object to local storage?",
+    correctAnswer2: ".stringify()",
+    incorrectAnswers2: [".parse()", ".click()", ".store()"]
 },
 {
-    question3: "What must you call on JSON in order to retrieve an object from local storage?",
-    correctAnswer3: ".parse",
-    incorrectAnswers3: [".stringify", ".retrieve", ".get"]
+    question3: "What method must you call on JSON in order to retrieve an object from local storage?",
+    correctAnswer3: ".parse()",
+    incorrectAnswers3: [".stringify()", ".retrieve()", ".get()"]
 },
 {
-    question4: "What must you call on the document in order to create an element?",
-    correctAnswer4: ".createElement",
-    incorrectAnswers4: [".appendChild", ".make", ".create"]
+    question4: "What method must you call on the document in order to create an element?",
+    correctAnswer4: ".createElement()",
+    incorrectAnswers4: [".appendChild()", ".make()", ".create()"]
 },
 {
-    question5: "What must you call on the document in order to add an element to the DOM?",
-    correctAnswer5: ".appendChild",
-    incorrectAnswers5: [".createElement", ".add", ".DOM"]
+    question5: "What method can you call on the document in order to add an element to the DOM?",
+    correctAnswer5: ".appendChild()",
+    incorrectAnswers5: [".createElement()", ".add()", ".DOM()"]
 }];
 var questionTitle = document.createElement("h2");
 questionTitle.setAttribute('id', 'question-title');
