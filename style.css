@@ -1,7 +1,7 @@
 :root {
-    --pink: rgb(221, 16, 197);
+    --pink: rgb(9, 193, 141);
     --gray: rgb(120, 119, 119);
-    --button-shadow: 2px 2px 2px rgb(221, 16, 197);
+    --button-shadow: 2px 2px 2px rgb(9, 193, 141);
 }
 
 body,
@@ -40,7 +40,7 @@ body ol {
 }
 
 .button:hover {
-    background-color: rgb(228, 137, 213);
+    background-color: rgb(169, 229, 192);
 }
 
 #start-button {
