@@ -1,7 +1,7 @@
 :root {
-    --blue: rgb(221, 16, 197);
-    --gray: darkgray;
-    --button-shadow: 5px 5px 2px rgb(65, 11, 79);
+    --pink: rgb(221, 16, 197);
+    --gray: rgb(120, 119, 119);
+    --button-shadow: 2px 2px 2px rgb(221, 16, 197);
 }
 
 body,
@@ -22,7 +22,7 @@ body ol {
     align-items: center;
 }
 .starting-page h1 {
-    color: var(--blue);
+    color: var(--pink);
     text-shadow: var(--gray) 2px 2px 2px;
 }
 .button {
@@ -31,7 +31,7 @@ body ol {
     height: 50px;
     margin: 10px;
     cursor: pointer;
-    background-color: var(--blue);
+    background-color: var(--pink);
     box-shadow: 5px 5px 2px var(--gray);
     border-radius: 7px;
     color: white;
@@ -51,7 +51,7 @@ body ol {
     background-color: var(--gray);
     box-shadow: var(--button-shadow);
     border-radius: 3px;
-    color: var(--blue);
+    color: white;
     font-family: sans-serif;
     font-family: bolder;
 }
@@ -66,14 +66,14 @@ body ol {
     background-color: var(--gray);
     box-shadow: var(--button-shadow);
     border-radius: 3px;
-    color: var(--blue);
+    color: white;
     font-family: sans-serif;
     font-weight: bolder;
 }
 
 .highscores {
     text-align: center;
-    color: var(--blue);
+    color: var(--pink);
     text-shadow: var(--gray) 2px 2px 2px;
 }
 
